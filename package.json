@@ -1,0 +1,61 @@
+{
+  "name": "vue3-elementplus-typescript",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview",
+    "test": "npm run prettier && npm run lint:js && npm run lint:css",
+    "lint:js": "echo $(tput setaf 2) eslint --fix --quiet src/**/*.{ts,vue} && echo [代码ok]",
+    "lint:css": "echo $(tput setaf 2) stylelint 'src/**/*.{css,scss,sass,vue}' --quiet --fix && echo [样式ok]",
+    "prettier": "echo $(tput setaf 2)  prettier --write --loglevel silent src/**/*.{vue,ts} && echo 代码美化完成",
+    "prepare": "husky install",
+    "lint:commitMsg": "commitlint --edit $1",
+    "commit": "git cz"
+  },
+  "dependencies": {
+    "element-plus": "^1.1.0-beta.12",
+    "sass": "^1.41.0",
+    "vue": "^3.2.6",
+    "vue-router": "~4.0.11"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@typescript-eslint/eslint-plugin": "^4.31.1",
+    "@typescript-eslint/parser": "^4.31.1",
+    "@vitejs/plugin-vue": "^1.6.1",
+    "@vue/compiler-sfc": "^3.2.6",
+    "cz-customizable": "^6.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-vue": "^7.17.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.4.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-order": "^4.1.0",
+    "typescript": "^4.3.2",
+    "vite": "^2.5.4",
+    "vue-tsc": "^0.2.2"
+  },
+  "lint-staged": {
+    "src/**/*": [
+      "npm run test",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
+  }
+}
